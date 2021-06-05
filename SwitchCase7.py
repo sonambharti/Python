@@ -1,4 +1,3 @@
-x=int(input("Enter the no: "))
 def numbers_to_months(x):
     switcher ={
         1: ("January"),
@@ -17,4 +16,5 @@ def numbers_to_months(x):
 
     result=switcher.get(x, lambda:"Invalid")
     print(result)
-
+x=int(input("Enter the no: "))
+numbers_to_months(x)
