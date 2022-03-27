@@ -4,4 +4,3 @@ if x=="Sonam":
     print("Valid Name...")
 else:
     print("Invalid Name...")
-
