@@ -9,5 +9,4 @@ print("array item size: ",a.itemsize) #bit of each element
 print("array element data type: ",a.dtype)
 
 print("Array shape: ",a.shape)
-
 print("No. of elem in array: ",a.size)
