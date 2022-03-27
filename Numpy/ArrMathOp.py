@@ -8,7 +8,7 @@ print("y= ",y)
 
 print("x+y = ",x + y)
 
-print(np.add(x,y)) #adding 2 array index-wise using add function
+print(np.add(x,y)) # adding 2 array index-wise using add function
 
 print(x-y)
 
