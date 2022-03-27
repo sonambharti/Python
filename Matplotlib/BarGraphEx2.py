@@ -8,7 +8,7 @@ y2=[6,15,7]
 
 plt.bar(x,y,color='r',label='Graph 1',width=.5) #(x-coordinate,y-coordinate,'color code for line',line-width)
 plt.bar(x2,y2,color='g',label='Graph 2',width=.3)
-plt.legend()  # legend() function is used to make labels of the line visible
+plt.legend()  #legend() function is used to make labels of the line visible
 plt.title('Graph')
 plt.xlabel('X axis')
 plt.ylabel('Y axis')
