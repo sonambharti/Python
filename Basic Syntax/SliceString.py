@@ -3,7 +3,7 @@ print(s)
 
 print(s[2:5]) # slicing of string, colon is slicing operator
 
-s[:5] # it doesn't include outer bond
+s[:5] #it doesn't include outer bond
 
 s[1:8:2] #s[start : end: increment/decrement]
 
