@@ -5,9 +5,10 @@
 
 import numpy as np
 
+import sys
+
 list = range(1000)
 
-import sys
 # sys module calculate size(in byte) in python
 a = 10
 print(sys.getsizeof(a)) #memory located to a
