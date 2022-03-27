@@ -7,6 +7,7 @@ print:
 *****
 
 """
+
 num=int(input("Enter the no. of level you want to print for pattern: "))
 
 for i in range(0,num):
