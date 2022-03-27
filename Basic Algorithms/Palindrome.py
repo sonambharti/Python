@@ -4,7 +4,7 @@ rev = 0
 while(pal > 0):
     rem = pal%10;
     rev = (rev*10)+rem
-    pal = pal//10
+    pal = pal//10 # here // is used for division arithmetic operation
 
 print("reverse: ", rev)
 
