@@ -15,4 +15,3 @@ plt.ylabel("savings")
 plt.legend()
 
 plt.show()
-
