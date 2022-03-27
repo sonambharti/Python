@@ -11,6 +11,7 @@ print(iris)
 
 for species,irisubset in iris.groupby('Species'):
   plt.scatter(irisubset['PetalLengthCm'],irisubset['PetalWidthCm'],label=species)
+  
 #here 'isisubset' means we are taking subset from iris
 plt.legend()
 plt.show()
