@@ -13,7 +13,7 @@ cols = ['k','m','r','b']
 
 plt.pie(slices,labels=activities,colors=cols,startangle=180  )
 
-# pie(parts of graph, label for each part,colors of the part,start angle)
+#pie(parts of graph, label for each part,colors of the part,start angle)
 
 plt.title('Pie Plot')
 
