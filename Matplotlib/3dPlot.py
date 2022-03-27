@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 #Here we need to import data file
 
-iris = pd.read_csv('Iris.csv') #read_csv('name of the required file')
+iris = pd.read_csv('Iris.csv') # read_csv('name of the required file')
 
 fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')
