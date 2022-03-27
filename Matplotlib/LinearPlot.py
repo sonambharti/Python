@@ -1,8 +1,6 @@
 """
 Matplot is used to create plots for our result of any algorithm.
-
 Mainly we can say Matplotlib is a data science library in python.
-
 Generally, It is used to plot 2-d plots only.
 """
 
