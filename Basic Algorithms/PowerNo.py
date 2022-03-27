@@ -4,6 +4,7 @@
 
 n = int(input("Enter the input: "))
 x=[]
+
 if(n>10000):
     print("Wrong Input")
 else:
