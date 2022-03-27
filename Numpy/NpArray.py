@@ -6,7 +6,6 @@
 # we can create some random nos.
 
 import numpy as np
-
 #creating 1-d array
 
 a = np.array([1,2,3])
