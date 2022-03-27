@@ -26,9 +26,7 @@ plt.plot([],[],color='r', label='Working', linewidth=5)
 
 plt.plot([],[],color='k', label='Playing', linewidth=5)
 
-plt.stackplot(days, sleeping,eating,working,playing,
-
-              colors=['m','c','r','k'])
+plt.stackplot(days, sleeping,eating,working,playing, colors=['m','c','r','k'])
 # 'k' is for black
 # 'm' is for dark pink
 # c is for sky blue
