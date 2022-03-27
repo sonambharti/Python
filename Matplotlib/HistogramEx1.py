@@ -2,7 +2,6 @@
 It shows distribution among data.
 
 Difference between Histogram and bargraphs......
-
 1. Bargraph is generally used for comparing different entites.
 But, Histogram is used to show the distribution among data.
 """
