@@ -1,6 +1,6 @@
 import numpy as np
 
-# creating 1-d array with help of arange function of continous 6 values
+#creating 1-d array with help of arange function of continous 6 values
 
 a1 = np.arange(6)
 print(a1)
