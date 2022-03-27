@@ -1,6 +1,6 @@
 import numpy as np
 
-#creates a set of arrays
+# creates a set of arrays
 
 #It will give variations of possible arrays
 print(np.indices((3,3))) # 3 rows and 3 col
