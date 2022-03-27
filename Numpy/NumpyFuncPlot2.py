@@ -11,4 +11,5 @@ plt.title("Multi Graph")
 plt.xlabel("Cost")
 plt.ylabel("Expenditure")
 plt.grid()
+
 plt.show()
