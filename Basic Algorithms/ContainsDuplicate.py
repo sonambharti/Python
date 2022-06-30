@@ -1,7 +1,13 @@
 def solve(n, arr):
   # CODE HERE
-  set1 = set(arr)
-  lst = list(set1)
+
+  lst = []
+    for i in arr:
+        if i not in lst:
+            lst.append(i)
+	
+  #set1 = set(arr)
+  #lst = list(set1)
 
   if(len(lst) == n):
     return 0
@@ -10,6 +16,9 @@ def solve(n, arr):
 
 if __name__ == '__main__':
 	n = int(input())
-	arr = list(map(int, input().split()))
+	for i in range(n):
+	    ele = int(input())
+	    arr.append(ele)
+	
 	res = solve(n, arr)
 	print(res)
