@@ -28,3 +28,28 @@ if __name__ == '__main__':
         for i in range(n):
             print(arr[i],end=" ")
         print()
+
+        
+"""
+def SelectionSort(arr):
+    n = len(arr)
+    
+    for itr in range(n):
+        min_indx = itr
+        for curr in range(itr+1,n):
+            if(arr[min_indx] > arr[curr]):
+                min_indx = curr
+        arr[min_indx], arr[itr] = arr[itr], arr[min_indx]
+        
+    return arr
+    
+n = int(input("Enter size of array: "))
+arr = []
+print("Enter array element: ")
+for i in range(n):
+    ele = int(input())
+    arr.append(ele)
+    
+res = SelectionSort(arr)
+print(res)
+"""
