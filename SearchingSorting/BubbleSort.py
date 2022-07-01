@@ -1,0 +1,25 @@
+
+class Solution:
+    #Function to sort the array using bubble sort algorithm.
+    def bubbleSort(self,arr, n):
+        # code here
+        for i in range(n):
+            for curr in range(n-1-i):
+                if(arr[curr] > arr[curr+1]):
+                    arr[curr], arr[curr+1] = arr[curr+1], arr[curr]
+                    
+        return arr
+
+
+
+
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        ob = Solution()
+        ob.bubbleSort(arr, n)
+        for i in arr:
+            print(i,end=' ')
+        print()
