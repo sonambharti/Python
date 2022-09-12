@@ -1,3 +1,12 @@
+# find length of largest possible palindromic string from a given string....
+"""
+Input:
+str = "abcccccdd"
+
+Output:
+7
+"""
+
 str = input()
 s = set(str)
 print(s)
