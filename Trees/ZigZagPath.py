@@ -10,10 +10,10 @@ class Tree:
 def zigZagLevelPath(root, isLeft, k):
     if root:
         if isLeft:
-            return max((zigZagLevelPath, True, 1), (zigZagLevelPath, False, k+1))
+            return max(zigZagLevelPath(root.left, True, 1), zigZagLevelPath(root.right, False, k+1))
         
         else:
-            return max((zigZagLevelPath, True, k+1), (zigZagLevelPath, False, 1))
+            return max(zigZagLevelPath(root.left, True, k+1), zigZagLevelPath(root.right, False, 1))
     
     return k-1
     
