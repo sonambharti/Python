@@ -1,4 +1,4 @@
-#Print path from one given node to other given node
+#Check if a given Binary Tree is Balanced or not.
 
 class Tree:
     def __init__(self, data):
@@ -8,8 +8,11 @@ class Tree:
 
 
 def height(root):
-    if not root:
+    if root is None:
         return 0
+    
+    if not root.left and not root.right:
+        return 1
             
     return max(height(root.left), height(root.right))+1
         
