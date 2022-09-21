@@ -12,8 +12,10 @@ def childSumParent(root):
     if not root or not root.left and not root.right:
         return 1
         
-    l = root.left.data
-    r = root.right.data
+    if root.left != None:
+        l = root.left.data
+    if root.right != None:
+        r = root.right.data
     
     if root.data == l+r and childSumParent(root.left)==1 and childSumParent(root.right)==1:
         return 1
@@ -44,4 +46,5 @@ root1.right.right = Tree(20)
 
 
 print("Given tree is child sum Parent: ", childSumParent(root1))
+
 
