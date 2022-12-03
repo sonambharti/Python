@@ -1,4 +1,4 @@
-#print count of the subseq of a given array
+#print count of the subseq of a given array usin recursion
 
 count = 0
 def subseq(indx, n, arr, lst):
