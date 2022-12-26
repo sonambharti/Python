@@ -49,8 +49,18 @@ class Codec:
                     root.right = self.deserialize(data[i+2:-1])
                     return root
                     
-                    
-                    
+                
+def inorder(root, lst):
+    # CODE HERE
+    if not root:
+        return
+    inorder(root.left, lst)
+    lst.append(root.val)
+    inorder(root.right, lst)
+
+   
+    
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
@@ -69,9 +79,11 @@ root.right.left.right = Node(13)
 root.right.right.left = Node(14)
 root.right.right.right = Node(15)
 
+lst = []
 obj = Codec()
 res1 = obj.serialize(root)
 print(res1)
 res2 = obj.deserialize(res1)
-
 print(res2)
+inorder(res2, lst)
+print("Inorder Traversal: ", lst)
