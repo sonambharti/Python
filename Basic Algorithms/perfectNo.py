@@ -6,6 +6,8 @@ number itself. For instance, 6 has divisors 1, 2 and 3 (excluding itself),
 and 1 + 2 + 3 = 6, so 6 is a perfect number.
 """
 
+"""
+#Brute Force
 def isPerfect(num):
     sum = 0
     for i in range(1, (num//2)+1):
@@ -16,7 +18,23 @@ def isPerfect(num):
         return True
         
     return False
+"""
+def isPerfect(num):
+    if num==1:
+        return False
+
+    sum = 1
+    sq = int(sqrt(num))
+
+    for i in range(2, sq+1):
+        if num%i == 0:                
+            temp = num//i
+            sum += i + temp
     
+    if sum == num:
+        return True
+    
+    return False
 def rangePerfect(num1, num2, res):
     for i in range(num1, num2+1):
         if isPerfect(i):
