@@ -1,3 +1,9 @@
+"""
+**Subsequence** - A sequence obtained from an original string/list which are common to the other string/list by 
+                  removing the middle elements in the same order. 
+                  A subsequence maintain relative ordering of elements but may or may not be a contiguous part of an array.
+"""
+
 def LCS(X, Y):
     m = len(X)
     n = len(Y)
