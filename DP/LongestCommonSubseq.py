@@ -3,6 +3,7 @@
                   removing the middle elements in the same order. 
                   A subsequence maintain relative ordering of elements but may or may not be a contiguous part of an array.
 """
+# Dynamic Programming method to obtain te longest common subsequence
 
 def LCS(X, Y):
     m = len(X)
