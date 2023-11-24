@@ -9,12 +9,14 @@ def powerset(indx, arr, lst, res):
         if(i<=indx and arr[i] == arr[i-1]):
             continue
         lst.append(arr[i])
-        subset(i+1, arr, lst, res)
+        powerset(i+1, arr, lst, res)
         lst.pop()
         
         
 indx = 0
-arr = ['a', 's', 'd', 'f']
+# arr = ['a', 's', 'd', 'f']
+strg = "asdf"
+arr = list(strg)
 lst = []
 res = []
 powerset(indx, arr, lst, res)
