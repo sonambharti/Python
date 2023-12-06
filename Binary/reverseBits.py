@@ -20,6 +20,7 @@ def reverseBits(n):
 
     return rev
 
-n = 11111111111111111111111111111101
+# n = 11111111111111111111111111111101
+n = 5
 res = reverseBits(n)
 print("Reversed Bits: ", res)
