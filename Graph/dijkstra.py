@@ -28,7 +28,7 @@ def dijkstra(graph, source):
     return distance
 
 if __name__ == "__main__":
-    source = 0
+    source = '0'
     graph = {
         '0' : {'1': 4, '7': 8},
         '1' : {'0': 4, '2': 8, '7': 11},
