@@ -12,7 +12,7 @@ def dijkstra(graph, source):
     distance[source] = 0
     
     queue = [(0, source)]
-    print(queue)
+    # print(queue)
     
     while queue:
         current_distance, current_node = heapq.heappop(queue)
