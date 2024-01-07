@@ -15,6 +15,19 @@ Example 1:
 Input: nums = [3,7,1,6]
 Output: 5
 """
+
+"""
+Intuition
+
+The previous element takes the fall for the bigger element.
+The elements are getting equally distributed in a order.
+
+Approach
+
+Calculated average sum for every element in the given order.
+The maximum average would be our answer.
+"""
+
 from math import ceil
 
 def minimizeArrayValue(nums):
