@@ -1,6 +1,4 @@
 #Quesion asked in Amazon Interviews
-#Find the length of largest possible palindromic string from a given string.
-
 """
 Find the length of largest possible palindromic string from a given string.
 
@@ -27,9 +25,13 @@ def longestPalindrome(s):
         
     # print(res)
     countLength = 0
-    for i in res:
-        if i%2 == 0:
-           countLength += i
+    for i in range(len(res)):
+        if res[i]%2 != 0:
+           countLength += res[i]-1
+           res[i] = res[i]%2
+        else:
+            countLength += res[i]
+       
     if 1 in res:
         return countLength+1
     return countLength
@@ -37,11 +39,7 @@ def longestPalindrome(s):
 
 if __name__ == "__main__":
     # str = "abccedacdbct"
-    str = "abccdacdbc"
+    str = "abccdacdbccd"
     # str = "abccccdd"
     ans = longestPalindrome(str)
     print("Length of the largest possible palindromic string: ", ans)
-    
-        
-    
-       
