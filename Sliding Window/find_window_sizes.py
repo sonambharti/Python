@@ -53,4 +53,4 @@ if __name__ == "__main__":
     print("Window Sizes (Brute Force):", result_bruteforce)
     
     result_slidingWindow = find_window_sizes_sliding_window(arr, target_sum)
-    print("Maximum Sum (sliding window):", result_slidingWindow)
+    print("Window Sizes (sliding window):", result_slidingWindow)
