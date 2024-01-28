@@ -4,21 +4,22 @@ Find the window sizes which contains the required
 sum of  the array elements present in the subarray of array. 
 
 Example:
-arr = [1, 4, 2, 10, 2, 3, 1, 0, 20]
-k = 4 
-Output: 28
+arr = [6, 4, 2, 10, 2, 3, 1, 0, 20]
+target_sum = 12
+Output: [3, 2, 2]
 """
 
 def find_window_sizes_bruteforce(arr, target_sum):
     n = len(arr)
     window_sizes = []
-
+    window_indx = []
     for i in range(n):
         current_sum = 0
         for j in range(i, n):
             current_sum += arr[j]
             if current_sum == target_sum:
-                window_sizes.append((i, j))
+                window_indx.append((i, j))
+                window_sizes.append(j-i+1)
 
     return window_sizes
 
@@ -37,7 +38,8 @@ def find_window_sizes_sliding_window(arr, target_sum):
             left += 1
 
         if current_sum == target_sum:
-            window_sizes.append((left, right))
+            window_indx.append((left, right))
+            window_sizes.append(right-left+1)
 
     return window_sizes
     
