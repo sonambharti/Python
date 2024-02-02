@@ -11,8 +11,11 @@ Output: [-1, -1, -7, -15, -15, 0]
 """
 
 def brute_force_firstNegNo(arr, k):
-    res = []
     n = len(arr)
+    if k > n:
+        return "Invalid window size given."
+    res = []
+    
     for i in range(n-k+1):
         sub_arr = arr[i:i+k]
         j = 0
