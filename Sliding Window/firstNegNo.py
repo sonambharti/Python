@@ -31,8 +31,33 @@ def brute_force_firstNegNo(arr, k):
             res.append(0)
     return res 
     
+from collections import deque
+
+def first_negative_in_window(arr, k):
+    res = []
+    n = len(arr)
+    negArr = deque()
+    
+    for i in range(n):
+        if negArr:
+            x = i-k
+            if negArr [0] == x:
+                negArr.popleft()
+        if arr[i] < 0:
+            negArr.append(i)
+        if i+1 >= k:
+            if negArr:
+                res.append(arr[negArr[0]])
+            else:
+                res.append(0)
+
+    return res
+    
 if __name__ == "__main__":
     arr = [12, -1, -7, 8, -15, 30, 16, 28]
     k = 3 
-    res = brute_force_firstNegNo(arr, k)
-    print("Array of first negatives in the window: ", res)
+    res1 = brute_force_firstNegNo(arr, k)
+    print("Array of first negatives in the window using Brute Force: ", res1)
+    
+    res2 = first_negative_in_window(arr, k)
+    print("Array of first negatives in the window using sliding window: ", res2)
