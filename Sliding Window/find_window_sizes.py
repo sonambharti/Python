@@ -28,6 +28,7 @@ def find_window_sizes_bruteforce(arr, target_sum):
 def find_window_sizes_sliding_window(arr, target_sum):
     n = len(arr)
     window_sizes = []
+    window_indx = []
     left = 0
     current_sum = 0
 
