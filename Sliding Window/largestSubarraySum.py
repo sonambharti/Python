@@ -23,6 +23,24 @@ def brute_larg_subarray_sum(nums, k):
                 maxLen = max(maxLen, j-i+1)
 
     return maxLen
+
+def sliding_larg_posSubarray_sum(arr, k):
+    # Only for positive arrays
+    maxLen = 0
+    window_sum = 0
+    i, j = 0, 0 
+    size = len(arr)
+    while j < size:
+        window_sum += arr[j]
+        if window_sum == k:
+            maxLen = max(maxLen, j-1+1)
+        elif window_sum > k:
+            while window_sum > k:
+                window_sum -= arr[i]
+                i += 1 
+        j += 1
+        
+    return maxLen
     
 def sliding_larg_subarray_sum(arr, k):
     maxLen = 0
@@ -46,7 +64,7 @@ if __name__ == "__main__":
     nums = [10, 5, 2, 7, 1, 9]
     k = 15
     print("Output:", brute_larg_subarray_sum(nums, k))
-    
+    print("Output:", sliding_larg_posSubarray_sum(nums, k))
     nums1 = [-5, 8, -14, 2, 4, 12]
     k1 = -5
     print("Output:", sliding_larg_subarray_sum(nums1, k1))
