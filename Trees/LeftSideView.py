@@ -39,7 +39,8 @@ def LeftView(root):
                 
         else:
             #lst.append(level)
-            res.append(level[0])
+            if len(level)!=0:
+                res.append(level[0])
             level = []
             
             if Q:
