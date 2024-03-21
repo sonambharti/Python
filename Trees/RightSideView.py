@@ -51,28 +51,7 @@ def RightView(root):
             
     return res
     
-def optimized_RightView(root):
-    if not root:
-        return []
-    
-    res = []
-    Q = deque([root])
-    
-    while queue:
-        level_size = len(Q)
-        
-        for i in range(level_size):
-            node = Q.popleft()
-            if i == level_size - 1:  # Only consider the last node at each level
-                res.append(node.data)
-            
-            if node.left:
-                Q.append(node.left)
-            if node.right:
-                Q.append(node.right)
-    
-    return res
-    
+
 root = Node(5)
 root.left = Node(1)
 root.right = Node(8)
@@ -82,6 +61,3 @@ root.right.right.left = Node(2)
 
 res = RightView(root)
 print(res)
-
-res1 = optimized_RightView(root)
-print(res1)
