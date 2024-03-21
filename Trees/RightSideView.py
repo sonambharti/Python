@@ -11,9 +11,8 @@ Return the values of the nodes you can see ordered from top to bottom.
     4   9		<-- 9
        /
       2			<-- 2
-
-*/
 """
+# Function to return a list containing elements of right view of the binary tree.
 from collections import deque
 
 class Node():
@@ -22,7 +21,9 @@ class Node():
         self.left = None
         self.right = None
         
-def solve(root):
+def RightView(root):
+    if not root:
+        return []
     level = []
     #lst = []
     res = []
@@ -50,9 +51,28 @@ def solve(root):
             
     return res
     
+def optimized_RightView(root):
+    if not root:
+        return []
     
+    res = []
+    Q = deque([root])
     
-
+    while queue:
+        level_size = len(Q)
+        
+        for i in range(level_size):
+            node = Q.popleft()
+            if i == level_size - 1:  # Only consider the last node at each level
+                res.append(node.data)
+            
+            if node.left:
+                Q.append(node.left)
+            if node.right:
+                Q.append(node.right)
+    
+    return res
+    
 root = Node(5)
 root.left = Node(1)
 root.right = Node(8)
@@ -60,5 +80,8 @@ root.left.right = Node(4)
 root.right.right = Node(9)
 root.right.right.left = Node(2)
 
-res = solve(root)
+res = RightView(root)
 print(res)
+
+res1 = optimized_RightView(root)
+print(res1)
