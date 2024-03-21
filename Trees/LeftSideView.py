@@ -81,4 +81,4 @@ res = LeftView(root)
 print(res)
 
 res1 = optimized_LeftView(root)
-print(res)
+print(res1)
