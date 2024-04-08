@@ -23,7 +23,28 @@ then 2 units to the 3rd stone, then 2 units to the 4th stone, then 3 units to th
 4 units to the 7th stone, and 5 units to the 8th stone.
 """
 
-def canCross(stones):
+# Brute Force Approach
+def canCrossBruteForce(stones):
+    # Define a recursive function to explore all possible jumps
+    def jump(pos, k):
+        # Base case: if the frog reaches the last stone, return True
+        if pos == stones[-1]:
+            return True
+        # Try all possible next jumps
+        for next_k in [k - 1, k, k + 1]:
+            if next_k > 0 and pos + next_k in stones:
+                # If a valid stone is found, recursively check if the frog can reach the end
+                if jump(pos + next_k, next_k):
+                    return True
+        # If no valid stone is found for any next jump, return False
+        return False
+    
+    # Start exploring all possible jumps from the first stone with initial jump 0
+    return jump(0, 0)
+
+
+# Dynamic Programming Approach
+def canCrossDP(stones):
     # Create a set to store the positions of stones for quick lookup
     stone_set = set(stones)
     # Create a dictionary to store the possible jumps for each stone
@@ -48,7 +69,9 @@ def canCross(stones):
     
 if __name__ == "__main__":
     stones = [0,1,3,5,6,8,12,17]
-    res = canCross(stones)
-    print("if the frog can cross the river by landing on the last stone or not: ", res)
+    res = canCrossBruteForce(stones)
+    print("if the frog can cross the river by landing on the last stone or not (using Brute): ", res)
     
+    resDP = canCrossDP(stones)
+    print("if the frog can cross the river by landing on the last stone or not (using DP): ", resDP)
     
