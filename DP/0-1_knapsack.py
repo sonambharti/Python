@@ -29,6 +29,22 @@ def rec_knapSack(W, wt, val, n):
     else:
         return max(val[n-1] + rec_knapSack(W-wt[n-1], wt, val, n-1), rec_knapSack(W, wt, val, n-1))
 
+def memoize_knapSack(W, wt, val, n):
+    # code here
+    dp = [[-1] * (W+1) for _ in range(n+1)]
+    def rec_knapSack(W, wt, val, n):
+        if n == 0 or W == 0:
+            return 0
+        if dp[n][W] != -1:
+            return dp[n][W]
+        
+        if wt[n-1] <= W:
+            dp[n][W] = max(val[n-1] + rec_knapSack(W-wt[n-1], wt, val, n-1), rec_knapSack(W, wt, val, n-1))
+        elif wt[n-1] > W:
+            dp[n][W] = rec_knapSack(W, wt, val, n-1)
+        return dp[n][W]
+    return rec_knapSack(W, wt, val, n)
+    
     
 def knapSack(W, wt, val, n):
     # code here
@@ -64,5 +80,6 @@ if __name__ == "__main__":
     values = [1,2,3]
     weight = [4,5,6]
     print("Maxm total value in knapsack using reccursion: ", rec_knapSack(W, weight, values, N))
+    print("Maxm total value in knapsack using memoization: ", memoize_knapSack(W, weight, values, N))
     print("Maxm total value in knapsack using dp: ", knapSack(W, weight, values, N))
   
