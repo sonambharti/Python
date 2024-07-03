@@ -25,27 +25,27 @@ def dfs_recursion(adj_list, node):
 
 
 def isCyclic(V, adj):
-        # code here
-        n = len(adj)
-        vis = set()
-        path = set()
-        def visitedPath(adj, el, vis, path):
-            vis.add(el)
-            path.add(el)
-            for adjel in adj[el]:
-                if adjel not in vis:
-                    if visitedPath(adj, adjel, vis, path):
-                        return True
-                elif adjel in path:
+    # code here
+    n = len(adj)
+    vis = set()
+    path = set()
+    def visitedPath(adj, el, vis, path):
+        vis.add(el)
+        path.add(el)
+        for adjel in adj[el]:
+            if adjel not in vis:
+                if visitedPath(adj, adjel, vis, path):
                     return True
-            path.remove(el)
-            return False
-        
-        for i in range(n):
-            if i not in vis:
-                if visitedPath(adj, i, vis, path):
-                    return True
+            elif adjel in path:
+                return True
+        path.remove(el)
         return False
+    
+    for i in range(n):
+        if i not in vis:
+            if visitedPath(adj, i, vis, path):
+                return True
+    return False
 
         
 
@@ -60,5 +60,5 @@ if __name__ == "__main__":
         if vis[i]==False:
             dfs_recursion(adjList, i)
     print("DFS Traversal using recursion:\n", st)
-    print("Is this graph cyclic or not: ", isCyclic(V, adj))
+    print("Is this graph cyclic or not: ", isCyclic(numOfNodes, adjList))
     
