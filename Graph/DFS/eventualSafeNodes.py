@@ -12,6 +12,7 @@ sorted in ascending order.
 
 """
 
+
 adjList = []
 def create_dir_adj_list(edges, numOfNodes):
     global adjList
