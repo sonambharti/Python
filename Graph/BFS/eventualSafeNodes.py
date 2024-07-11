@@ -28,9 +28,10 @@ def create_dir_adj_list(edges, numOfNodes):
 in_degree = {}   
 def eventualSafeNodes(V, adj):
     # code here
-    global adjList, in_degree
+    global in_degree
+    adjList = []
     def create_dir_adj_list(adj, numOfNodes):
-        global adjList, in_degree
+        global in_degree
         in_degree = {i: 0 for i in range(V)}
         # numOfNodes = 1 + max([el[1] for el in edges] + [el[0] for el in edges])
         adjList = [[]*numOfNodes for _ in range(numOfNodes)]
@@ -38,8 +39,9 @@ def eventualSafeNodes(V, adj):
             for el in adj[i]: 
                 in_degree[i] += 1
                 adjList[el].append(i) # directed
+        return adjList
     
-    create_dir_adj_list(adj, V) 
+    adjList = create_dir_adj_list(adj, V) 
     # in_degree = {i: 0 for i in range(V)}
     # for i in range(V):
     #     for node in adjList[i]:
