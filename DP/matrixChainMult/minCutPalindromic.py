@@ -31,23 +31,29 @@ def minCutMatrixMult(s):
         
     def rec_palindromicPartition(string, i, j):
         global MOD
-        if i>=j or is_palindrome(string, i, j) == True:
-            dp[i] = 0
-
-        if dp[i] != -1:
-            return dp[i]
-            
-        dp[i] = MOD
-        for k in range(i, j):
-            if is_palindrome(string, i, k):
-                if dp[k+1] != -1:
-                    right = dp[k+1]
+            if i>=j:
+                dp[i][j] = 0
+            if is_palindrome(string, i, j) == True:
+                dp[i][j] = 0
+            if dp[i][j] != -1:
+                return dp[i][j]
+                
+            dp[i][j] = MOD
+            for k in range(i, j):
+                # minm_part = min(minm_part, 1 + rec_palindromicPartition(string, i, k) + rec_palindromicPartition(string, k+1, j))
+                if dp[i][k] != -1:
+                    left = dp[i][k]
+                else:
+                    left = rec_palindromicPartition(string, i, k)
+                    dp[i][k] = left
+                if dp[k+1][j] != -1:
+                    right = dp[k+1][j]
                 else:
                     right = rec_palindromicPartition(string, k+1, j)
-                    dp[k+1] = right
-                dp[i] = min(dp[i], 1 + right)
-        return dp[i]
-    return rec_palindromicPartition(s, 0, n-1)
+                    dp[k+1][j] = right
+                dp[i][j] = min(dp[i][j], 1 + left + right)
+            return dp[i][j]
+        return rec_palindromicPartition(string, 0, n-1)
 
 def minCutPalindromic(s):
 
