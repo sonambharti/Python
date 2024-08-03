@@ -22,12 +22,7 @@ Explanation: The longest substring is "ababb", as 'a' is repeated 2 times and 'b
 
 
 def longestSubstring(s, k):
-    def is_valid(freq, k):
-        for key in freq:
-            if freq[key] < k:
-                return False
-        return True
-
+    
     n = len(s)
     max_len = 0
     
