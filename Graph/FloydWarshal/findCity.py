@@ -49,8 +49,13 @@ def findCity(n, m, edges, distanceThreshold):
             for v in range(n):
                 if ((dist_mat[u][via]!=float('infinity')) and (dist_mat[via][v])!=float('infinity')) and (dist_mat[u][v] > dist_mat[u][via] + dist_mat[via][v]):
                     dist_mat[u][v] = dist_mat[u][via] + dist_mat[via][v]
-                if (dist_mat[u][v] > dist_mat[u][via] + dist_mat[via][v]):
-                    dist_mat[u][v] = dist_mat[u][via] + dist_mat[via][v]
+                # if (matrix[u][via] == -1 or matrix[via][v] == -1):
+                #          continue
+                # elif (matrix[u][via] != -1 and matrix[via][v] != -1):
+                #         if matrix[u][v] == -1:
+                #             matrix[u][v] = matrix[u][via] + matrix[via][v]
+                #         elif(matrix[u][v] > matrix[u][via] + matrix[via][v]):
+                #             matrix[u][v] = matrix[u][via] + matrix[via][v
         
     max_city = n
     ans = -1
