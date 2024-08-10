@@ -1,4 +1,3 @@
-
 class Solution: 
     def select(self, arr, i):
         # code here 
