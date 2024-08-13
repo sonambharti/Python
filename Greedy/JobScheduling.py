@@ -31,14 +31,17 @@ class job:
         self.profit = profit
 
 
+
 class Solution:
     #Function to find the maximum profit and the number of jobs done.
     def JobScheduling(self, Jobs, n):
         # code here
         Jobs.sort(key=lambda x: x.profit, reverse=True)
-        maxi = Jobs[0].deadline
-        for i in range(1, len(Jobs)):
-            maxi = max(maxi, Jobs[i].deadline)
+        # maxi = Jobs[0].deadline
+        # for i in range(1, len(Jobs)):
+        #     maxi = max(maxi, Jobs[i].deadline)
+
+        maxi =  max(job.deadline for job in Jobs)
 
 
         slot = [-1] * (maxi + 1)
