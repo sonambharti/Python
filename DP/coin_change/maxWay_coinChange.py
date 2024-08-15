@@ -1,4 +1,6 @@
 """
+# Coin Change (Count Ways)
+
 You are given an integer array coins representing coins of different 
 denominations and an integer amount representing a total amount of money.
 
@@ -39,10 +41,25 @@ def maxWays_coinChange_tabularDP(coins, amount, n):
     return dp[n][amount]
 
 
+def dp_count(coins, N, amount):
+    # code here 
+    dp = [0] * (amount+1)
+
+    dp[0] = 1
+    
+    for coin in coins:
+        for i in range(coin, amount+1):
+            dp[i] += dp[i - coin]
+    return dp[amount]
+    
+    
 if __name__ == "__main__":  
     coins = [1,2,3]
     amount = 6
     n = len(coins)
     dp = [[-1]*(amount+1) for i in range(n+1)]
     res = maxWays_coinChange_tabularDP(coins, amount, n)
-    print(res)
+    print("Maxm number of combinations that make up that amount using memoization", res)
+    
+    res1 = dp_count(coins, n, amount)
+    print("Maximum number of combinations that make up that amount usin DP: ", res)
