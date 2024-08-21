@@ -19,24 +19,6 @@ The points are (1,1), (2,2) and (3,3).
 from collections import defaultdict
 from math import gcd
 
-# Helper function to check if three points are on the same straight line
-def checkStraightLine(X, Y, coordinates):
-    n = len(coordinates)
-    if n == 2:
-        return True
-    
-    x1, y1 = coordinates[0]
-    x2, y2 = coordinates[1]
-
-    # Check for all points if they satisfy the line equation
-    for i in range(2, n):
-        xi, yi = coordinates[i]
-        # Use cross multiplication to avoid division (which can lead to precision issues)
-        if (yi - y1) * (x2 - x1) != (y2 - y1) * (xi - x1):
-            return False
-    
-    return True
-
 # Function to calculate the maximum number of points on the same line
 def maxPoints(X, Y, n):
     if n <= 2:
