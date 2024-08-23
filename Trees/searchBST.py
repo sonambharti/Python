@@ -84,4 +84,4 @@ if __name__ == "__main__":
     
     
     res1 = searchBST(root, 21)
-    print("Maxm Sum Path: ", res1)
+    print("Subtree of the given node: ", res1)
