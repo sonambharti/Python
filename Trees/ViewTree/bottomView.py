@@ -11,15 +11,15 @@ will be considered.
 
 
 
-    5			<-- 5		
+    5					
    / \
-  1   8			<-- 8
+  1   8			
    \   \
-    4   9		<-- 9
+    4   9		
        /
-      2			<-- 2
+      2			
 """
-# Function to return a list containing elements of right view of the binary tree.
+# Function to return a list containing elements of bottom view of the binary tree.
 
 from collections import deque, defaultdict
 
@@ -52,6 +52,7 @@ def bottomView(root):
         res.append(value)
         
     return res
+
 
 root = Node(5)
 root.left = Node(1)
