@@ -86,29 +86,33 @@ def PathSum(root, targetSum):
         helper(node, 0)
         dfs(node.left)
         dfs(node.right)
-
     
     dfs(root)
     return totalCount
-    
-    # res = []
-    # path = []
-    # def dfs(node, path, curr_sum):
-    #     curr_sum += node.data
-    #     temp = path + [node.data]
 
-    #     if node.left:
-    #         dfs(node.left, temp, curr_sum)
-    #     if node.right:
-    #         dfs(node.right, temp, curr_sum)
-    #     if not node.left and not node.right and curr_sum == targetSum:
-    #         res.append(temp)
+
+
+from collections import defaultdict
+def pathSumOptimized(root, targetSum):
+    totalCount = 0
+    lookup = defaultdict(int)
+    lookup[targetSum] = 1
+
+    def dfs(node, curr_sum):
+        nonlocal totalCount
+        if not node:
+            return
+        # helper(node, 0)
+        curr_sum += node.data
+        totalCount += lookup[curr_sum]
+        lookup[curr_sum + targetSum] += 1
+        dfs(node.left, curr_sum)
+        dfs(node.right, curr_sum)
+        lookup[curr_sum + targetSum] -= 1
+
     
-    # if not root:
-    #     return []
-    # dfs(root, path, 0)
-    # return res
-    
+    dfs(root, 0)
+    return totalCount
         
 if __name__ == "__main__":
     root = Node(5)
@@ -128,5 +132,7 @@ if __name__ == "__main__":
     res1 = PathSum(root, targetSum)
     print("Count of the path of target Sum from node to node: ", res1)
     
+    res2 = pathSumOptimized(root, targetSum)
+    print("Count of the path of target Sum from node to node: ", res2)
     
     
