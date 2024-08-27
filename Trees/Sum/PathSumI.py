@@ -102,7 +102,7 @@ if __name__ == "__main__":
     targetSum = 10
     
     res1 = hasPathSum(root, targetSum)
-    print("Count Good Nodes in Binary Tree: ", res1)
+    print("Is there a Path of Sum in Binary Tree: ", res1)
     
     
     
