@@ -29,10 +29,11 @@ def findMaxDiff(arr):
     for i in range(0, n):
         while len(st) > 0 and st[-1] >= arr[i]:
             st.pop()
-        if st:
-            ls[i] = st[-1]
-        else:
-            ls[i] = 0
+        # if st:
+        #     ls[i] = st[-1]
+        # else:
+        #     ls[i] = 0
+        ls[i] = 0 if len(st) == 0 else st[-1]
         st.append(arr[i])
     
     # Free Memory used
@@ -41,7 +42,7 @@ def findMaxDiff(arr):
         
     # For right smaller
     for i in range(n-1, -1, -1):
-        while len(st) > 0 and st[-1] > arr[i]:
+        while len(st) > 0 and st[-1] >= arr[i]:
             st.pop()
         if st:
             rs[i] = st[-1]
