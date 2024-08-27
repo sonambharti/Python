@@ -1,35 +1,51 @@
 """
-# 113. Path Sum II
+# Paths from root with a specified sum
 
-Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths 
-where the sum of the node values in the path equals targetSum. Each path should be 
-returned as a list of the node values, not node references.
-
-A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf
-is a node with no children.
-
- 
+Given a Binary tree and a sum S, print all the paths, starting from root, that sums upto 
+the given sum. Path not necessarily end on a leaf node.
 
 Example 1:
 
+Input : 
+sum = 8
+Input tree
+         1
+       /   \
+     20      3
+           /    \
+         4       15   
+        /  \     /  \
+       6    7   8    9      
 
-Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
-Output: [[5,4,11,2],[5,8,4,5]]
-Explanation: There are two paths whose sum equals targetSum:
-5 + 4 + 11 + 2 = 22
-5 + 8 + 4 + 5 = 22
+Output :
+1 3 4
+Explanation : 
+Sum of path 1, 3, 4 = 8.
 Example 2:
 
-
-Input: root = [1,2,3], targetSum = 5
-Output: []
-Example 3:
-
-Input: root = [1,2], targetSum = 0
-Output: []
+Input : 
+sum = 38
+Input tree
+          10
+       /     \
+     28       13
+           /     \
+         14       15
+        /   \     /  \
+       21   22   23   24
+Output :
+10 28
+10 13 15  
+Explanation :
+Sum of path 10, 28 = 38 and
+Sum of path 10, 13, 15 = 38.
+Your task :
+You don't have to read input or print anything. Your task is to complete the function 
+printPaths() that takes the root of the tree and sum as input and returns a vector of
+vectors containing the paths that lead to the sum.
  
-
-
+Expected Time Complexity: O(N)
+Expected Space Complexity: O(N2)
 
                    5		
                  /   \      
@@ -90,7 +106,7 @@ def PathSum(root, targetSum):
             dfs(node.left, temp, curr_sum)
         if node.right:
             dfs(node.right, temp, curr_sum)
-        if not node.left and not node.right and curr_sum == targetSum:
+        if curr_sum == targetSum:
             res.append(temp)
     
     if not root:
@@ -112,10 +128,10 @@ if __name__ == "__main__":
     
     print("Level order traversal of the given binary tree: ", levelOrder(root))
     
-    targetSum = 10
+    targetSum = 17
     
     res1 = PathSum(root, targetSum)
-    print("Path of the target Sum root-to-leaf: ", res1)
+    print("Path of the target Sum from root to a node: ", res1)
     
     
     
