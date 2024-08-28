@@ -1,0 +1,93 @@
+"""
+# 1926. Nearest Exit from Entrance in Maze
+
+You are given an m x n matrix maze (0-indexed) with empty cells (represented as '.') and 
+walls (represented as '+'). You are also given the entrance of the maze, where 
+entrance = [entrancerow, entrancecol] denotes the row and column of the cell you are 
+initially standing at.
+
+In one step, you can move one cell up, down, left, or right. You cannot step into a cell 
+with a wall, and you cannot step outside the maze. Your goal is to find the nearest exit 
+from the entrance. An exit is defined as an empty cell that is at the border of the maze. 
+The entrance does not count as an exit.
+
+Return the number of steps in the shortest path from the entrance to the nearest exit, or -1 
+if no such path exists.
+
+ 
+
+Example 1:
+
+
+Input: maze = [["+","+",".","+"],[".",".",".","+"],["+","+","+","."]], entrance = [1,2]
+Output: 1
+Explanation: There are 3 exits in this maze at [1,0], [0,2], and [2,3].
+Initially, you are at the entrance cell [1,2].
+- You can reach [1,0] by moving 2 steps left.
+- You can reach [0,2] by moving 1 step up.
+It is impossible to reach [2,3] from the entrance.
+Thus, the nearest exit is [0,2], which is 1 step away.
+Example 2:
+
+
+Input: maze = [["+","+","+"],[".",".","."],["+","+","+"]], entrance = [1,0]
+Output: 2
+Explanation: There is 1 exit in this maze at [1,2].
+[1,0] does not count as an exit since it is the entrance cell.
+Initially, you are at the entrance cell [1,0].
+- You can reach [1,2] by moving 2 steps right.
+Thus, the nearest exit is [1,2], which is 2 steps away.
+
+
+"""
+from collections import deque
+
+def nearestExit(maze, entrance):
+    n = len(maze)
+    m = len(maze[0])
+
+    q = deque()
+    visited = [[False] * m for _ in range(n)]
+    steps = 0
+    q.appendleft(entrance)
+
+    def bfs(maze, sr, sc, q, steps, entrance):
+
+        while q:
+            qSize = len(q)
+            qSize = qSize - 1
+            print(qSize)
+            while qSize >= 0:
+                el = q.pop()
+                sr = el[0]
+                sc = el[1]
+                lrow = [-1, 0, 1, 0]
+                lcol = [0, -1, 0, 1]
+                
+                if ((el != entrance) and (sr == 0 or sr == n-1 or sc == 0 or sc == m-1)):
+                    return steps
+
+                for k in range(4):
+                    curr_row = sr+lrow[k]
+                    curr_col = sc+lcol[k]
+                    if (0<=curr_row<n) and (0<=curr_col<m) and maze[curr_row][curr_col]=='.' and visited[curr_row][curr_col]== False:
+                        visited[curr_row][curr_col] = True
+                        # maze[curr_row][curr_col] = '+'
+                        q.appendleft([curr_row, curr_col])
+                qSize -= 1
+            steps += 1
+        return -1
+
+    sr, sc = entrance[0], entrance[1]
+    visited[sr][sc] = True
+    # maze[entrance[0]][entrance[1]] = '+'
+    res = bfs(maze, sr, sc, q, steps, entrance)
+    return res
+
+if __name__ == "__main__":
+    maze = [["+","+",".","+"],[".",".",".","+"],["+","+","+","."]]
+    entrance = [1,2]
+    
+    res = nearestExit(maze, entrance)
+    print(res)
+    
