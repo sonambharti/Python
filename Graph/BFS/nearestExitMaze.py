@@ -56,7 +56,7 @@ def nearestExit(maze, entrance):
         while q:
             qSize = len(q)
             qSize = qSize - 1
-            print(qSize)
+            # print(qSize)
             while qSize >= 0:
                 el = q.pop()
                 sr = el[0]
@@ -89,5 +89,5 @@ if __name__ == "__main__":
     entrance = [1,2]
     
     res = nearestExit(maze, entrance)
-    print(res)
+    print("Nearest Exit from Entrance in Maze using BFS: ",res)
     
