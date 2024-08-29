@@ -39,6 +39,9 @@ Output:
 5
 '''
 
+# Time Complexity - O(ElogV + logV) = O(ElogV)
+# Space Complexity - O(V+E)
+
 from heapq import *
 
 def spanningTree(V, adj):
