@@ -35,9 +35,6 @@ def generateMatrix(n):
             el += 1
         r -= 1
 
-        if not (l < r and t < b):
-            break
-
         for i in range(r-1, l-1, -1):
             res_mat[b-1][i] = el
             el += 1
