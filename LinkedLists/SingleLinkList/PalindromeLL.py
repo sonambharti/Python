@@ -87,7 +87,7 @@ def isPalindrome(head):
         fast = fast.next.next
     rev = reverse_linkList(slow)
     while rev:
-        if head.val != rev.val:
+        if head.data != rev.data:
             return False
         head = head.next
         rev = rev.next
