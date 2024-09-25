@@ -68,16 +68,31 @@ def reverse_linkList(head2):
     
 def isPalindrome(head):
     #code here
-    curr = head
-    tail = reverse_linkList(head)
+    # Method - I
+    # curr = head
+    # tail = reverse_linkList(head)
     
-    while curr:
-        if curr.data != tail.data:
+    # while curr:
+    #     if curr.data != tail.data:
+    #         return False
+    #     curr = curr.next
+    #     tail = tail.next
+    
+    
+    # Method - II 
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    rev = reverse_linkList(slow)
+    while rev:
+        if head.val != rev.val:
             return False
-        curr = curr.next
-        tail = tail.next
-        
+        head = head.next
+        rev = rev.next
     return True
+        
 
    
     
