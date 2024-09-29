@@ -30,7 +30,7 @@ class DisjointSet:
 
     # find the root parent of each node and their pareints are said to be `ultimate parent`.
     def findUltimateParent(self, node):
-        if node == self.parent[node]:
+        if self.parent[node] == node:
             return node
         self.parent[node] = self.findUltimateParent(self.parent[node])
         return self.parent[node]
@@ -44,10 +44,10 @@ class DisjointSet:
             return
             
         # Here, we are doing path compression of each node. i.e. linking node to it's ultimate parent instead of it's parent.
-        if self.rank[firstParent] < self.rank[secParent]: # if rank of firstParent is lesser than secParent is the Parent of firstParent
+        if self.rank[firstParent] < self.rank[secParent]: # if rank of firstParent is lesser then secParent is the Parent of firstParent
             self.parent[firstParent] = secParent
             
-        elif self.rank[firstParent] > self.rank[secParent]: # if rank of secParent is lesser than firstParent is the Parent of secParent
+        elif self.rank[firstParent] > self.rank[secParent]: # if rank of secParent is lesser then firstParent is the Parent of secParent
             self.parent[secParent] = firstParent
             
         else:
