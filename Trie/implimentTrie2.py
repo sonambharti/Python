@@ -87,7 +87,7 @@ class Trie:
 
 if __name__ == "__main__":
     trie = Trie()
-    print("Inserting words: Striver, Striving, String, Strike")
+    print("Inserting words: apple, apron, apps, bat, ball, cinderalla")
     trie.insert("apple")
     trie.insert("apron")
     trie.insert("apps")
