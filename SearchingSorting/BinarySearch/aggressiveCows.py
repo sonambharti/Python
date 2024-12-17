@@ -28,21 +28,22 @@ number of cows.
 The minimum distance between cows, in this case, is 1, which also is the largest among all possible ways.
 '''
 
-def isPossible(m):
-    count=1
-    lcow=stalls[0]
-    for i in stalls:
-        if i-lcow>=m:
-            count+=1
-            if count==k:
-                return 1
-            lcow=i
-    return 0
     
 
 def aggressiveCows(stalls, k):
     l,r=0,max(stalls)
     stalls.sort()
+    
+    def isPossible(m):
+        count=1
+        lcow=stalls[0]
+        for i in stalls:
+            if i-lcow>=m:
+                count+=1
+                if count==k:
+                    return 1
+                lcow=i
+        return 0
     
     while l<=r:
         m=l+(r-l)//2
