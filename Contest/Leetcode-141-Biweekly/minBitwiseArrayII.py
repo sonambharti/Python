@@ -49,7 +49,7 @@ def minBitwiseArray(nums):
     }
     Now, taking it in reverse way:
     In this case possible x value can be any binary value where we can 
-    flip any one of the consecutive 1's from y. (i.e. unset the set bit).
+    flip any one of the consecutive 1's before 1st 0 from y. (i.e. unset the set bit).
     So to select the minm, choose the one with MSB 0 bit.
     """
     
@@ -61,10 +61,10 @@ def minBitwiseArray(nums):
         if nums[i] == 2:
             ans.append(-1)
             continue
-        for x in range(1, 31): # traversing through each bit of the number nums[i]
-            if (nums[i] & (1 << x)):
+        for j in range(1, 31): # traversing through each bit of the number nums[i] as for 10**9 nos., we have 30 bits.
+            if (nums[i] & (1 << j)): # if j_th bit is set(1) then coninue/skip
                 continue
-            ans.append(nums[i] ^ (1 << (x - 1))) # using bitwise XOR
+            ans.append(nums[i] ^ (1 << (j - 1))) # unset the j_th - 1 bit when we get 1st 0 from right & use bitwise XOR to get minm ans
             break
 
     return ans
