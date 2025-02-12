@@ -20,16 +20,12 @@ class Tree:
         self.left = None
         self.right = None
         
-def inorder(root):
-    if root:
-        inorder(root.left)
-        print(root.data)
-        inorder(root.right)
 
 class Solution:
     def __init__(self):
         self.count = 0
-    def sumK(self,root,k):
+        
+    def sumK_Bruteforce(self,root,k):
         # code here
         def helper(root, k, path):
             if not root:
@@ -51,6 +47,27 @@ class Solution:
         helper(root, k, path)
         return self.count
         
+        
+    # Using Prefix sum + Hash sum
+    def sumK(self,root,k):
+        # code here
+        def helper(root,k,currSum,preSum):
+            if root:
+                currSum[0]+=root.data
+                ans=preSum.get(currSum[0]-k,0)
+                preSum[currSum[0]]=preSum.get(currSum[0],0)+1
+                ans+=helper(root.left,k,currSum,preSum)
+                ans+=helper(root.right,k,currSum,preSum)
+                preSum[currSum[0]]-=1
+                currSum[0]-=root.data
+                return ans
+            return 0
+            
+        currSum=[0]
+        preSum={0:1}
+        return helper(root,k,currSum,preSum)
+    
+    
 
 if __name__ == "__main__":
     k = 7
@@ -64,8 +81,10 @@ if __name__ == "__main__":
     root.left.right.left =Tree(1)
     root.right.right = Tree(2)
     
-    # print("Inorder Traversal")
-    # inorder(root)
     
     obj = Solution()
+
+    print(obj.sumK_Bruteforce(root, k))
+    
     print(obj.sumK(root, k))
+    
