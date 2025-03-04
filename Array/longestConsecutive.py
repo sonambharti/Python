@@ -20,27 +20,71 @@ Output: 7
 Explanation: The longest consecutive subsequence is 9, 10, 11, 12, 13, 14, 15, which has a length of 7.
 '''
 
+from typing import List
 
-def longestConsecutive(arr):
-    #code here
-    n = len(arr)
+class BruteForce:
+    def linearSearch(self, arr, key):
+        n = len(arr)
+        for i in range(n):
+            if arr[i] == key:
+                return True
+        return False
+
+    def longestConsecutive(self, nums: List[int]) -> int:
+        n = len(nums)
+        longest = 0
+        for i in range(n):
+            x = nums[i]
+            count = 1
+            while (self.linearSearch(nums, x+1) == True):
+                x = x + 1
+                count = count + 1
+            longest = max(longest, count)
+        
+        return longest
+
+
+import sys
+def longestConsecutive_better(nums):
+    n = len(nums)
+    nums.sort()
+    lastSmall = - sys.maxsize
+    longest = 0
+    count = 1
+    for i in range(n):
+        if nums[i] - 1 == lastSmall:
+            count = count + 1 
+            lastSmall = nums[i]
+        elif nums[i] != lastSmall:
+            count = 1 
+            lastSmall = nums[i]
+        longest = max(longest, count)
+        
+    return longest
+    
+    
+def longestConsecutive_optimal(nums):
+    n=len(nums)
+    longest=1 
     if n==0:
-        return 0
-    arr.sort()
-    longest = 1
-    currStreak = 1
-    
-    for i in range(1, n):
-        if arr[i] != arr[i-1]:
-            if arr[i] == arr[i-1] + 1:
-                currStreak += 1
-            else:
-                longest = max(longest, currStreak)
-                currStreak = 1
-    
-    return max(longest, currStreak)
-    
-    
+        return 0 
+    s=set(nums)
+    for i in s:
+        if i-1 not in s: # search in a set takes O(1) as it uses hash table to store elements
+            cnt=1 
+            x=i 
+            while x+1 in s:
+                cnt+=1 
+                x+=1 
+            longest=max(longest,cnt)
+    return longest
+        
+        
 if __name__ == "__main__":
-    arr = [15, 13, 12, 14, 11, 10, 9]
-    print(longestConsecutive(arr))
+    nums = [100,4,200,1,3,2]
+    Bobj = BruteForce()
+    print("The longest consecutive subsequence by Brute Force: ", Bobj.longestConsecutive(nums))
+    
+    print("The longest consecutive subsequence in better way: ", longestConsecutive_better(nums))
+    
+    print("The longest consecutive subsequence in optimal: ", )
