@@ -56,7 +56,7 @@ class Solution:
             summ += wt
     
             # check all the adjacent nodes of the poped node
-            for v in range(n): 
+            for v in range(V): 
                 if not visited[v]:
                     dist = self.manhattanDist(houses[el], houses[v])
                     if dist < minDist[v]:
