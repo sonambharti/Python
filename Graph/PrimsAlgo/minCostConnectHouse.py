@@ -38,7 +38,7 @@ class Solution:
         # code here
         V = len(houses)
         visited = [False] * V
-        minDist = [float("inf")] * n
+        minDist = [float("inf")] * V
         summ = 0
         priorityQ = [(0, 0)]
         
