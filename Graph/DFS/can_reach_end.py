@@ -2,6 +2,37 @@
 Given an N x N grid, where each cell contains a direction (U, D, L, R), 
 determine if you can reach (N, N) from (0,0).
 """
+
+# using while loop
+def can_reach_end_loop(grid):
+    n = len(grid)
+    visited = [[False] * n for _ in range(n)]
+    
+    x, y = 0, 0
+    
+    while 0 <= x < n and 0 <= y < n:
+        if visited[x][y]:
+            return False  # cycle detected
+        if (x, y) == (n - 1, n - 1):
+            return True
+        visited[x][y] = True
+        
+        direction = grid[x][y]
+        if direction == 'U':
+            x -= 1
+        elif direction == 'D':
+            x += 1
+        elif direction == 'L':
+            y -= 1
+        elif direction == 'R':
+            y += 1
+        else:
+            return False  # invalid character
+    
+    return False  # went out of bounds
+
+
+# using DFS or recursion
 def can_reach_end(grid):
     n = len(grid)
     visited = [[False] * n for _ in range(n)]
@@ -28,6 +59,7 @@ def can_reach_end(grid):
         return False
 
     return dfs(0, 0)
+
 
 
 # Example usage:
