@@ -6,7 +6,7 @@ Input:
 s = "pwewe"
 Output: 3
 """
-# Brute Force O(n^3)
+# Brute Force O(n^2)
 def LongestUniqSubstring_brute(s):
     n = len(s)
     max_len = 0
