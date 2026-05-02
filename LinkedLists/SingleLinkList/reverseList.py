@@ -17,25 +17,53 @@ class ListNode:
         self.val = val
         self.next = None
         
-        
+def revList(node):
+    prev = None
+    curr = node
+    nnext = None
 
-def reverse(head):
-    # code here
-    if not head or not head.next:
-        return head
-        
-    prev, curr, nextn = head, head.next, head.next.next
-    
-    while nextn:
+    while curr:
+        nnext = curr.next
         curr.next = prev
         prev = curr
-        curr = nextn
-        nextn = nextn.next
+        curr = nnext
+
+    return prev
+    
+    
+# def revList(node):
+#     prev = None
+#     curr = node
+#     nnext = node.next
+
+#     while nnext:
+#         curr.next = prev
+#         prev = curr
+#         curr = nnext
+#         nnext = nnext.next
         
-    head.next=None
-    curr.next=prev    
+#     curr.next=prev 
+
+#     return curr
+            
+
+# def reverse(head):
+#     # code here
+#     if not head or not head.next:
+#         return head
         
-    return curr
+#     prev, curr, nextn = head, head.next, head.next.next
+    
+#     while nextn:
+#         curr.next = prev
+#         prev = curr
+#         curr = nextn
+#         nextn = nextn.next
+        
+#     head.next=None
+#     curr.next=prev    
+        
+#     return curr
 
 
 
