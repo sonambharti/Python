@@ -17,24 +17,28 @@ class ListNode:
         self.val = val
         self.next = None
         
-def revList(node):
-    prev = None
-    curr = node
-    nnext = None
-
-    while curr:
-        nnext = curr.next
-        curr.next = prev
-        prev = curr
-        curr = nnext
-
-    return prev
-    
-    
-# def revList(node):
+# def reverse(head):
+#     if not head or not head.next:
+#         return head
 #     prev = None
-#     curr = node
-#     nnext = node.next
+#     curr = head
+#     nnext = None
+
+#     while curr:
+#         nnext = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = nnext
+
+#     return prev
+    
+    
+# def reverse(head):
+#     if not head or not head.next:
+#         return head
+#     prev = None
+#     curr = head
+#     nnext = head.next
 
 #     while nnext:
 #         curr.next = prev
@@ -47,23 +51,23 @@ def revList(node):
 #     return curr
             
 
-# def reverse(head):
-#     # code here
-#     if not head or not head.next:
-#         return head
+def reverse(head):
+    # code here
+    if not head or not head.next:
+        return head
         
-#     prev, curr, nextn = head, head.next, head.next.next
+    prev, curr, nextn = head, head.next, head.next.next
     
-#     while nextn:
-#         curr.next = prev
-#         prev = curr
-#         curr = nextn
-#         nextn = nextn.next
+    while nextn:
+        curr.next = prev
+        prev = curr
+        curr = nextn
+        nextn = nextn.next
         
-#     head.next=None
-#     curr.next=prev    
+    head.next=None
+    curr.next=prev    
         
-#     return curr
+    return curr
 
 
 
