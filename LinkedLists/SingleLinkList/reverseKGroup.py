@@ -55,6 +55,7 @@ def reverseKGroup(head, k):
     while temp:
         tracker = temp
         count = k
+        # track if we actually have k no. of nodes before reversinig
         while count:
             if tracker == None:
                 break
