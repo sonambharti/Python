@@ -75,6 +75,7 @@ class Solution:
         
     
     def nextLargerNodes(self, head):
+        # Step 1: Convert linked list to array
         n = 0
         val_list = []
         while head:
@@ -83,8 +84,9 @@ class Solution:
             n += 1
 
         res = [0] * n
-        st = []
+        st = [] # store indices
         
+        # Step 2: Monotonic decreasing stack
         for i in range(n):
             while st and val_list[i] > val_list[st[-1]]:
                 indx = st.pop()
