@@ -93,7 +93,29 @@ class Solution:
                 res[indx] = val_list[i]
             st.append(i)
         return res
-        
+
+    def nextLargerNodes_linklist(self, head):
+        res = []
+        stack = []  # (index, value)
+        idx = 0
+
+        curr = head
+        while curr:
+            # append placeholder for current node
+            res.append(0)
+
+            # resolve previous smaller elements
+            while stack and curr.val > stack[-1][1]:
+                prev_idx, _ = stack.pop()
+                res[prev_idx] = curr.val
+
+            # push current node
+            stack.append((idx, curr.val))
+
+            curr = curr.next
+            idx += 1
+
+        return res
     
 
 if __name__ == "__main__":
