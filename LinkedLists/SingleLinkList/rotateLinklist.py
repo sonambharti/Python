@@ -41,6 +41,38 @@ def rotate(head, k):
         
     return first
 
+# 61. Rotate List
+class Solution:
+    def rotateRight(self, head, k):
+        if not head:
+            return None
+        if not head.next:
+            return head
+
+        dummy_head = head
+        tail = head
+        
+        n = 1
+        while tail.next:
+            tail = tail.next
+            n += 1
+        
+        k = k % n
+        if k == 0:
+            return head
+            
+        rem = n - k - 1
+    
+        while rem > 0:
+            dummy_head = dummy_head.next
+            rem -= 1
+            
+        temp_head = dummy_head.next
+        tail.next = head
+        dummy_head.next = None
+        
+        return temp_head
+            
 
 
 def print_linked_list(head):
