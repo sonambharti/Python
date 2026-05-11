@@ -44,12 +44,13 @@ def print_linked_list(head):
     print("None")
 
 
+
 class Solution:
     def reverse(self, node, x):
         curr = node
         prev, nnext = None, None
 
-        while x > 0:
+        while x > 0 and curr:
             nnext = curr.next
             curr.next = prev
             prev = curr
@@ -59,29 +60,33 @@ class Solution:
         return prev, curr
 
     def reverseBetween(self, head, left, right):
-        if not head:
-            return None
-        tail = head
-        prev = None
-        n = 0
-
-        while tail:
-            tail = tail.next
-            n += 1
-        
-        if n == 1 or left == right:
+        if not head or left == right:
             return head
-            
+        prev = None
         temp = head
+
+        # Move to left position
         for i in range(1, left):
             prev = temp
             temp = temp.next
 
-        revers, nextRight  = self.reverse(temp, right)
-        prev.next = revers
-        temp.next = nextRight
+        # temp is starting node of reverse section
+        reverseStart = temp
+
+        # Reverse exact number of nodes
+        revers, nextRight = self.reverse(temp, right - left + 1)
+
+        # Connect left side
+        if prev:
+            prev.next = revers
+        else:
+            head = revers
+
+        # Connect right side
+        reverseStart.next = nextRight
 
         return head
+        
 
 if __name__ == "__main__":
     # Creating a linked list with a loop
