@@ -27,7 +27,7 @@ def bfs(adjList, n):
         while q:
             el = q.pop()
             print(el, end=" ")
-            for adjel in (adj[i]):
+            for adjel in adj[el]:
                 if adjel not in vis:
                     vis.add(adjel)
                     q.appendleft(adjel)
