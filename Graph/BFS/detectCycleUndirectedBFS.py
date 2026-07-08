@@ -54,7 +54,7 @@ def detect_cycle_undirected_bfs(adj):
                     if adjel not in vis:
                         vis.add(adjel)
                         q.appendleft([adjel, el])
-                    elif adjel != parent:
+                    elif adjel != parent: # if the adjel is already visited & it's not the parent of the el then there is cycle
                         print(f"cycle found at {el} - {adjel}")
                         return
     
