@@ -8,7 +8,8 @@ A bipartite graph is a graph in which the vertices can be divided into two disjo
 such that no two vertices within the same set are adjacent. In other words, it is a graph 
 in which every edge connects a vertex of one set to a vertex of the other set.
 
-In simple words, If we can color the whole graph with 2 colors such that no adjacent nodes have same color is known as Bipartite Graph.
+In simple words, If we can color the whole graph with 2 colors such that no adjacent nodes 
+have same color is known as Bipartite Graph.
 
 """
 
