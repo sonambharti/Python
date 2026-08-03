@@ -40,8 +40,6 @@ def print_linked_list(head):
 class Solution:
     def linkDelete(self, head, n, m):
         # Code here
-        if m == 0:
-            return None
         if n == 0:
             return head
         tempNode = head
