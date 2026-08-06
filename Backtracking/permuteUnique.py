@@ -19,6 +19,9 @@ Input: nums = [1,2,3]
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
 '''
+# Time Complexity: O(nlogn + n * n!)
+# Space Complexity: O(n)
+# Output Space: O(U * n)
 
 from typing import List
 
