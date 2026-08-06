@@ -22,7 +22,9 @@ Input: nums = [1]
 Output: [[1]]
 
 '''
-
+# Time Complexity: O(n * n!)
+# Space Complexity: O(n)
+# Output Space: O(n * n!)
 from typing import List
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
