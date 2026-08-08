@@ -15,7 +15,7 @@ def solve(st, k):
 def deleteMidElArr(st, n):
     if len(st) == 0:
         return
-    k = n//2
+    k = n//2 + 1
     solve(st, k)
     return
     
