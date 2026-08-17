@@ -62,21 +62,40 @@ class Solution:
         # Time Complexity: O(n)
         # Space Complexity: O(n)
         n = len(heights)
+        left = [0]*n
+        right = [0]*n
+
+        # calculate left contributions
+        stack = []
+        for i in range(n):  
+            while stack and heights[stack[-1]] > heights[i]:
+                stack.pop()
+            
+            if not stack:
+                left[i] = heights[i] * (i+1)
+            else:
+                j = stack[-1]
+                left[i] = left[j] + heights[i] * (i-j)
+
+            stack.append(i)
+
+        # calculate right contributions
+        stack = []
+        for i in range(n-1, -1, -1):  
+            while stack and heights[stack[-1]] > heights[i]:
+                stack.pop()
+            
+            if not stack:
+                right[i] = heights[i] * (n-i)
+            else:
+                j = stack[-1]
+                right[i] = right[j] + heights[i] * (j-i)
+            stack.append(i)
+
+        # Try every index as peak
         ans = 0
-        for peak in range(n):  
-            total = heights[peak]
-            curr = heights[peak]
-            
-            # left side of the peak
-            for j in range(peak-1, -1, -1):
-                curr = min(curr, heights[j])
-                total += curr
-            
-            # right side of the peak
-            curr = heights[peak]
-            for j in range(peak+1, n):
-                curr = min(curr, heights[j])
-                total += curr
+        for i in range(n):
+            total = left[i] + right[i] - heights[i]
             ans = max(ans, total)
         return ans
                    
