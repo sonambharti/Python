@@ -10,8 +10,24 @@ def quickSort(arr):
     greater = [x for x in arr[1:] if x > pivot]
     
     return quickSort(less) + [pivot] + quickSort(greater)
+
+import random
+
+def quickSort_randPivot(arr):
+    if len(arr) <= 1:
+        return arr
+
+    pivot = random.choice(arr)
+
+    less = [x for x in arr if x < pivot]
+    equal = [x for x in arr if x == pivot]
+    greater = [x for x in arr if x > pivot]
+
+    return quickSort(less) + equal + quickSort(greater)
     
 if __name__ == "__main__":
     arr = [4, 2, 8, 1, 6, 7]
     res = quickSort(arr)
     print("Sorted array is: ", res)
+    res1 = quickSort_randPivot(arr)
+    print("Sorted array is: ", res1)
